@@ -118,7 +118,7 @@ str="<tr><th> Nome </th> <th> Cognome </th> <th>Anni</th>";
 let ricerca = document.getElementById("cerca").value.toUpperCase();
 for(i=0;i<oggetto.archivio.length; i++)   
 {
-    let cognome = oggetto.archivio[i].cognome;
+    let cognome = oggetto.archivio[i].cognome.toUpperCase();
     if(cognome.startsWith(ricerca))
     {
         str = str+"<tr><td>"+oggetto.archivio[i].nome +"</td><td>"+oggetto.archivio[i].cognome + "</td><td>"+ oggetto.archivio[i].anni + "</td></tr>" ;
