@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Leggere un file XML contenete un elenco di nomi attraverso l'oggetto XMLHttpRequest() e la responseXML</h2>
+<input id="b1" type="button" onclick="LetturaFile();" value="leggi i dati dal file">
+<table id="t1"></table>
+
+<script>
+function LetturaFile()
+{
+    var xmlhttp = new XMLHttpRequest(); // si crea un oggetto di tipo XMLHttpRequest
+    xmlhttp.open("GET", "https://francescofollatello.github.io/progetti_js/dati.xml",true); //specifica la richiesta: il metodo GET,  il file da aprire, in modo asincrono (true)
+                    
+    xmlhttp.send();  // manda la richiesta al server
+    xmlhttp.onload = function() // si definisce una funzione che sarà chiamata quando la richiesta è ricevuta (caricata)
+    { 
+        xmlDoc = xmlhttp.responseXML; // si definisce la risposta di tipo XML perchè è stato aperto un file xml
+        txt1 = "<tr><th>Nome</th><th>Cognome</th><th>Anni</th></tr>";
+
+        nomi = xmlDoc.getElementsByTagName("nome"); 
+        cognomi= xmlDoc.getElementsByTagName("cognome");
+        anni = xmlDoc.getElementsByTagName("anni");
+
+        for (i = 0; i <cognomi.length; i++) // si crea dinamicamente il codice di una tabella HTML contenente i valori dei cognomi  e nomi
+        {
+            txt1 += "<tr><td>" + nomi[i].childNodes[0].nodeValue + "</td><td>" + cognomi[i].childNodes[0].nodeValue + "</td><td>" + anni[i].childNodes[0].nodeValue + "</td></tr>";
+        } 
+        document.getElementById("t1").innerHTML = txt1;//la stringa contenente codice HTML viene inserita nella tabella identificata con "t1"	  
+    }
+}
+</script>
+
+</body>
+</html>
