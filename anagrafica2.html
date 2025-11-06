@@ -32,22 +32,25 @@ function LetturaFile()
 }
 function CercaCognomi()
 {
-let xhr = new XMLHttpRequest();
+var xmlhttp = new XMLHttpRequest(); // si crea un oggetto di tipo XMLHttpRequest
+xmlhttp.open("GET", "https://francescofollatello.github.io/progetti_js/dati.xml",true); //specifica la richiesta: il metodo GET,  il file da aprire, in modo asincrono (true)
+                    
+xmlhttp.send();  // manda la richiesta al server 
 
-xhr.open("GET", "https://francescofollatello.github.io/progetti_js/dati.xml", true);
-xhr.send(); 
-
- xhr.onload = function() {
-const oggetto = JSON.parse(xhr.responseText);
+xmlhttp.onload = function() {
+xmlDoc = xmlhttp.responseXML; // si definisce la risposta di tipo XML perchè è stato aperto un file xml
 
 str="<tr><th> Nome </th> <th> Cognome </th> <th>Anni</th>";
-let ricerca = document.getElementById("cerca").value.toUpperCase();
-for(i=0;i<oggetto.archivio.length; i++)   
+var ricerca = document.getElementById("cerca").value.toUpperCase();
+cognomi= xmlDoc.getElementsByTagName("cognome");
+for (i = 0; i <cognomi.length; i++) 
 {
-    let cognome = oggetto.archivio[i].cognome.toUpperCase();
-    if(cognome.startsWith(ricerca))
+    var cognome = cognomi[i].childNodes[0].nodeValue;
+    if(cognome.toUpperCase().startsWith(ricerca))
     {
-        str = str+"<tr><td>"+oggetto.archivio[i].nome +"</td><td>"+oggetto.archivio[i].cognome + "</td><td>"+ oggetto.archivio[i].anni + "</td></tr>" ;
+        nomi = xmlDoc.getElementsByTagName("nome");
+        anni = xmlDoc.getElementsByTagName("anni");
+        str += "<tr><td>" + nomi[i].childNodes[0].nodeValue + "</td><td>" + cognome + "</td><td>" + anni[i].childNodes[0].nodeValue + "</td></tr>";
     }
 }
 str = str+"</TABLE>";
