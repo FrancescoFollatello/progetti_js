@@ -3,6 +3,8 @@
 <body>
 <h2>Leggere un file XML contenete un elenco di nomi attraverso l'oggetto XMLHttpRequest() e la responseXML</h2>
 <input id="b1" type="button" onclick="LetturaFile();" value="leggi i dati dal file">
+<input id="cerca" type="text" placeholder="Inserisci lettera per ricerca cognomi">
+<input id="b5" type="button" onclick="CercaCognomi();" value="Cerca Cognomi">
 <table id="t1"></table>
 
 <script>
@@ -27,6 +29,30 @@ function LetturaFile()
         } 
         document.getElementById("t1").innerHTML = txt1;//la stringa contenente codice HTML viene inserita nella tabella identificata con "t1"	  
     }
+}
+function CercaCognomi()
+{
+let xhr = new XMLHttpRequest();
+
+xhr.open("GET", "https://francescofollatello.github.io/progetti_js/dati.xml", true);
+xhr.send(); 
+
+ xhr.onload = function() {
+const oggetto = JSON.parse(xhr.responseText);
+
+str="<tr><th> Nome </th> <th> Cognome </th> <th>Anni</th>";
+let ricerca = document.getElementById("cerca").value.toUpperCase();
+for(i=0;i<oggetto.archivio.length; i++)   
+{
+    let cognome = oggetto.archivio[i].cognome.toUpperCase();
+    if(cognome.startsWith(ricerca))
+    {
+        str = str+"<tr><td>"+oggetto.archivio[i].nome +"</td><td>"+oggetto.archivio[i].cognome + "</td><td>"+ oggetto.archivio[i].anni + "</td></tr>" ;
+    }
+}
+str = str+"</TABLE>";
+document.getElementById("t1").innerHTML = str;
+}
 }
 </script>
 
