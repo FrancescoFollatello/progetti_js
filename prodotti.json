@@ -1,0 +1,27 @@
+[
+    {
+        "nome": "Laptop",
+        "info": "Un laptop potente per tutte le tue esigenze di lavoro e gioco.",
+        "prezzo": 999.99
+    },
+    {
+        "nome": "Smartphone",
+        "info": "Uno smartphone all'avanguardia con fotocamera ad alta risoluzione.",
+        "prezzo": 699.99
+    },
+    {
+        "nome": "Cuffie Wireless",
+        "ifno": "Cuffie comode con cancellazione del rumore per un'esperienza audio immersiva.",
+        "prezzo": 199.99
+    },
+    {
+        "nome": "Smartwatch",
+        "info": "Un orologio intelligente per tenere traccia della tua salute e delle tue notifiche.",
+        "prezzo": 249.99
+    },
+    {
+        "nome": "Tablet",
+        "info": "Un tablet leggero e versatile per il lavoro e l'intrattenimento in movimento.",
+        "prezzo": 399.99
+    }
+]

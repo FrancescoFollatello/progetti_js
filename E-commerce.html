@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #ececec;
+        padding: 20px;
+    }
+    h1 {
+        text-align: left;
+        color: #2d2d2d;
+    }
+    #buttons {
+        text-align: left;
+        margin-bottom: 25px;
+    }
+    button {
+        padding: 12px 20px;
+        margin: 6px;
+        border: none;
+        background: #6a5acd;
+        color: white;
+        border-radius: 8px;
+    }
+    table {
+        width: 100%;
+        background: white;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #bfbfbf;
+    }
+    th {
+        background: #6a5acd;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1>E-Commerce</h1>
+    <h1>Catalogo Prodotti</h1>
+
+    <div id="buttons">
+        <button onclick="JSONReader()">Leggi JSON</button>
+        <button onclick="XMLReader()">Leggi XML</button>
+        <button onclick="CSVReader()">Leggi CSV</button>
+        <button onclick="TXTReader()">Leggi TXT</button>
+    </div>
+
+    <table id="tabella">
+        <tr>
+            <th>Nome</th>
+            <th>Info</th>
+            <th>Prezzo</th>
+        </tr>
+    </table>
+
+    <script>
+        function Clear() {
+            const x = document.getElementById("tabella");
+            if (x == null) return;
+            x.innerHTML = "<tr><th>Nome</th><th>Info</th><th>prezzo</th></tr>";
+        }
+
+        function addRow(nome, info, prezzo) {
+            const tab = document.getElementById("tabella");
+            tab.innerHTML += "<tr><td>" + nome + "</td><td>" + info + "</td><td>" + prezzo + "</td></tr>";
+        }
+
+        function JSONReader() {
+            Clear();
+
+            let file = new XMLHttpRequest();
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.json', true);
+            file.send();
+            file.onload = function () {
+                const data = JSON.parse(file.responseText);
+
+                for (let i = 0; i < data.length; i++) {
+                    let x = data[i];
+                    addRow(x.nome, x.info, x.prezzo);
+                }
+            }
+        }
+
+        function XMLReader() {
+            Clear();
+
+            let file = new XMLHttpRequest();
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.xml', true);
+            file.send();
+
+            file.onload = function () {
+                const xml = file.responseXML;
+                const x = xml.getElementsByTagName("prodotto");
+
+                for (let i = 0; i < x.length; i++) {
+                    let nome = x[i].getElementsByTagName("nome")[0].textContent;
+                    let info = x[i].getElementsByTagName("info")[0].textContent;
+                    let prezzo = x[i].getElementsByTagName("prezzo")[0].textContent;
+
+                    addRow(nome, info, prezzo);
+                }
+            }
+        }
+
+        function CSVReader() {
+            Clear();
+
+            let file = new XMLHttpRequest();
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.csv', true);
+            file.send();
+            file.onload = function () {
+                const r = file.responseText.split("\n");
+                for (let i = 1; i < r.length; i++) {
+                    const c = r[i].split(",");
+                    addRow(c[0], c[1], c[2]);
+                }
+            }
+        }
+
+        function TXTReader() {
+            Clear();
+
+            let file = new XMLHttpRequest();
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.txt', true);
+            file.send();
+
+            file.onload = function () {
+                const r = file.responseText.split("\n");
+
+                for (let i = 0; i < r.length; i++) {
+                    const c = r[i].split("|");
+                    addRow(c[0], c[1], c[2]);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
