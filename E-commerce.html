@@ -78,7 +78,7 @@
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.json', true);
+            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.json', true);
             file.send();
             file.onload = function () {
                 const data = JSON.parse(file.responseText);
@@ -94,7 +94,7 @@
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.xml', true);
+            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.xml', true);
             file.send();
 
             file.onload = function () {
@@ -115,7 +115,7 @@
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.csv', true);
+            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.csv', true);
             file.send();
             file.onload = function () {
                 const r = file.responseText.split("\n");
@@ -130,7 +130,7 @@
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.txt', true);
+            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.txt', true);
             file.send();
 
             file.onload = function () {
