@@ -48,10 +48,10 @@
     <h1>Catalogo Prodotti</h1>
 
     <div id="buttons">
-        <button onclick="JSONReader()">Leggi JSON</button>
-        <button onclick="XMLReader()">Leggi XML</button>
-        <button onclick="CSVReader()">Leggi CSV</button>
-        <button onclick="TXTReader()">Leggi TXT</button>
+        <button onclick="JSONReader()">CELLULARI & SMARTPHONE(JSON)</button>
+        <button onclick="XMLReader()">COMPUTER & LAPTOP(XML)</button>
+        <button onclick="CSVReader()">ACCESSORI INFORMATICA(CSV)</button>
+        <button onclick="TXTReader()">PERIFERICHE(TXT)</button>
     </div>
 
     <table id="tabella">
@@ -74,11 +74,11 @@
             tab.innerHTML += "<tr><td>" + nome + "</td><td>" + info + "</td><td>" + prezzo + "</td></tr>";
         }
 
-        function JSONReader() {
+        function JSONReader() { //CELLULARI & SMARTPHONE
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.json', true);
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.json', true);
             file.send();
             file.onload = function () {
                 const data = JSON.parse(file.responseText);
@@ -90,11 +90,11 @@
             }
         }
 
-        function XMLReader() {
+        function XMLReader() { //COMPUTER & LAPTOP
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.xml', true);
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.xml', true);
             file.send();
 
             file.onload = function () {
@@ -111,11 +111,11 @@
             }
         }
 
-        function CSVReader() {
+        function CSVReader() { //ACCESSORI INFORMATICA
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.csv', true);
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.csv', true);
             file.send();
             file.onload = function () {
                 const r = file.responseText.split("\n");
@@ -126,11 +126,11 @@
             }
         }
 
-        function TXTReader() {
+        function TXTReader() { //PERIFERICHE
             Clear();
 
             let file = new XMLHttpRequest();
-            file.open('GET', 'https://francescofollatello.github.io/progetti_js/prodotti.txt', true);
+            file.open('GET', 'francescofollatello.github.io/progetti_js/prodotti.txt', true);
             file.send();
 
             file.onload = function () {
