@@ -1,27 +1,27 @@
 [
     {
-        "nome": "Laptop",
-        "info": "Un laptop potente per tutte le tue esigenze di lavoro e gioco.",
-        "prezzo": 999.99
+        "nome": "Galaxy Nova S24",
+        "info": "Smartphone con display AMOLED e ottime prestazioni generali.",
+        "prezzo": 799.99
     },
     {
-        "nome": "Smartphone",
-        "info": "Uno smartphone all'avanguardia con fotocamera ad alta risoluzione.",
-        "prezzo": 699.99
+        "nome": "iPhone 14 Pro",
+        "info": "Dispositivo premium con fotocamera avanzata e sistema fluido.",
+        "prezzo": 1099.00
     },
     {
-        "nome": "Cuffie Wireless",
-        "ifno": "Cuffie comode con cancellazione del rumore per un'esperienza audio immersiva.",
-        "prezzo": 199.99
+        "nome": "Pixel One Vision",
+        "info": "Android puro con fotocamera eccellente e aggiornamenti rapidi.",
+        "prezzo": 649.90
     },
     {
-        "nome": "Smartwatch",
-        "info": "Un orologio intelligente per tenere traccia della tua salute e delle tue notifiche.",
-        "prezzo": 249.99
-    },
-    {
-        "nome": "Tablet",
-        "info": "Un tablet leggero e versatile per il lavoro e l'intrattenimento in movimento.",
+        "nome": "Xiaomi RedMax 12",
+        "info": "Smartphone dal grande schermo e batteria di lunga durata.",
         "prezzo": 399.99
+    },
+    {
+        "nome": "OnePlus Swift 11",
+        "info": "Telefono potente con ricarica rapida e prestazioni elevate.",
+        "prezzo": 699.00
     }
 ]

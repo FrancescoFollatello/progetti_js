@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <prodotti>
     <prodotto>
-        <nome>PC Desktop TitanBox R7</nome>
-        <info>Desktop da gaming potente, con componenti di ultima generazione per prestazioni elevate.</info>
-        <prezzo>1599.00</prezzo>
+        <nome>Dell XPS 13 Plus</nome>
+        <info>Laptop leggero e potente per lavoro e studio.</info>
+        <prezzo>1299.00</prezzo>
     </prodotto>
     <prodotto>
-        <nome>Monitor UltraView 27Q</nome>
-        <info>Monitor QHD da 27 pollici, ideale per grafica, produttività e gaming grazie alla buona nitidezza.</info>
-        <prezzo>329.99</prezzo>
+        <nome>MacBook Air M2</nome>
+        <info>Notebook sottile con ottima autonomia e prestazioni fluide.</info>
+        <prezzo>1399.00</prezzo>
     </prodotto>
     <prodotto>
-        <nome>Tastiera MechPro K80</nome>
-        <info>Tastiera meccanica con switch professionali e retroilluminazione RGB regolabile.</info>
-        <prezzo>129.00</prezzo>
+        <nome>HP Pavilion 15</nome>
+        <info>Portatile versatile adatto all’uso quotidiano.</info>
+        <prezzo>799.99</prezzo>
     </prodotto>
     <prodotto>
-        <nome>Mouse LaserSwift X9</nome>
-        <info>Mouse wireless preciso ed ergonomico, con ottima autonomia.</info>
-        <prezzo>59.99</prezzo>
+        <nome>Lenovo ThinkPad E14</nome>
+        <info>Notebook affidabile pensato per il lavoro professionale.</info>
+        <prezzo>899.00</prezzo>
     </prodotto>
     <prodotto>
-        <nome>SSD FlashSpeed 2TB NVMe</nome>
-        <info>SSD NVMe ultra-veloce da 2 TB per avvio rapido e trasferimenti rapidi.</info>
-        <prezzo>189.50</prezzo>
+        <nome>Asus ROG Strix G15</nome>
+        <info>Laptop gaming con hardware potente e schermo fluido.</info>
+        <prezzo>1499.00</prezzo>
     </prodotto>
 </prodotti>
