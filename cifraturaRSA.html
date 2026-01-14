@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifratura con RSA</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 30%;
+            border: 2px solid blue;
+            border-radius: 5px;
+            width: 33%;
+            margin-top: 30px;
+            margin-left: 33%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="button"] {
+            font-weight: bold;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(92, 214, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            font-weight: bold;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(67, 220, 67);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Messaggio numerico da cifrare</h1>
+        <form action="http://localhost/decifratura.php" method="get">
+            <label for="M1">Messaggio in chiaro</label>
+            <input type="text" id="M1" placeholder="Inserire il testo...">
+
+            <input type="button" value="Cifra" onclick="cifrare()">
+
+            <label for="C">Messaggio cifrato:</label>
+            <input type="text" id="C" name="messaggio_cifrato" placeholder="Messaggio cifrato" readonly>
+
+            <input type="submit">
+        </form>
+    </div>
+
+    <script>
+        function cifrare() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost/chiavePubblica.json', true);
+            xhr.send();
+            xhr.onload = function() {
+                const oggetto = JSON.parse(xhr.responseText);
+                const E = oggetto.E;
+                const N = oggetto.N;
+                const M = parseInt(document.getElementById("M1").value);
+
+                let C = Math.pow(M, E) % N;
+
+                document.getElementById("C").value = C;
+            }
+        }
+    </script>
+</body>
+</html>
