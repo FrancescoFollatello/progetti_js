@@ -2,8 +2,8 @@
 $C = $_GET["messaggio_cifrato"];
 
 echo "Messaggio cifrato: $C";
-$file = fopen("http://localhost/chiavePrivata.json", "r");
-$nuovo = fread($file, filesize("chiavePrivata.json"));
+$file = fopen("https://francescofollatello.github.io/progetti_js/chiavePrivata.json", "r");
+$nuovo = fread($file, filesize("https://francescofollatello.github.io/progetti_js/chiavePrivata.json"));
 $contenuto = json_decode($nuovo);
 
 $K = $contenuto->K;

@@ -49,7 +49,7 @@
 <body>
     <div id="container">
         <h1>Messaggio numerico da cifrare</h1>
-        <form action="http://localhost/decifratura.php" method="get">
+        <form action="https://francescofollatello.github.io/progetti_js/decifratura.php" method="get">
             <label for="M1">Messaggio in chiaro</label>
             <input type="text" id="M1" placeholder="Inserire il testo...">
 
@@ -65,7 +65,7 @@
     <script>
         function cifrare() {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost/chiavePubblica.json', true);
+            xhr.open('GET', 'https://francescofollatello.github.io/progetti_js/chiavePubblica.json', true);
             xhr.send();
             xhr.onload = function() {
                 const oggetto = JSON.parse(xhr.responseText);
